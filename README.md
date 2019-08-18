@@ -14,6 +14,7 @@ passwd = secrets.GetPassword()
 ```
 
 ## Running the example locally:
+- pip install .
 - pip install gunicorn falcon
 - cd example 
 - APP_ENV=local _some_local_password=password123 gunicorn service:api
