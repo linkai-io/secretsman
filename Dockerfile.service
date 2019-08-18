@@ -1,0 +1,12 @@
+FROM python:3.7-alpine
+COPY . /app
+WORKDIR /app
+RUN pip install . && pip install gunicorn && pip install falcon
+WORKDIR /app/example
+
+ENV APP_ENV=local
+ENV _some_local_password=password123
+
+EXPOSE 8000
+
+CMD ["gunicorn", "-w 4", "-b", "0.0.0.0:8000", "service:api"]
