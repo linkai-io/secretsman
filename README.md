@@ -19,6 +19,12 @@ passwd = secrets.GetPassword()
 - APP_ENV=local _some_local_password=password123 gunicorn service:api
 - curl http://localhost:8000/ (in another terminal)
 
+## Running locally inside docker
+From the root project:
+- make buildexample
+- docker run --name secretsman -p 8000:8000 service:latest
+- curl http://localhost:8000/ (in another terminal)
+
 ## Running the example in AWS:
 Build the docker container (make buildexample) and push to ECR. Next you'll need to create an ECS task (and cluster). 
 With a policy similar to:
